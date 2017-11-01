@@ -1,0 +1,18 @@
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba2\WindowsFormsApplicationLaba2\bin\Debug\WindowsFormsApplicationLaba2.exe.config
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba2\WindowsFormsApplicationLaba2\bin\Debug\WindowsFormsApplicationLaba2.exe
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba2\WindowsFormsApplicationLaba2\bin\Debug\WindowsFormsApplicationLaba2.pdb
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.csprojResolveAssemblyReference.cache
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.Properties.Resources.resources
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.csproj.GenerateResource.Cache
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.exe
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.pdb
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.Form1.resources
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\bin\Debug\WindowsFormsApplicationLaba2.exe.config
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.exe
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.pdb
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.csprojResolveAssemblyReference.cache
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.Form1.resources
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.Properties.Resources.resources
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.csproj.GenerateResource.Cache
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\bin\Debug\WindowsFormsApplicationLaba2.exe
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\bin\Debug\WindowsFormsApplicationLaba2.pdb
