@@ -1,0 +1,12 @@
+C:\Users\Пользователь\Source\Repos\ISE-21_Panova_E_V\WindowsFormsApplicationLab3\WindowsFormsApplicationLab3\bin\Debug\WindowsFormsApplicationLab3.exe.config
+C:\Users\Пользователь\Source\Repos\ISE-21_Panova_E_V\WindowsFormsApplicationLab3\WindowsFormsApplicationLab3\obj\Debug\WindowsFormsApplicationLab3.csprojResolveAssemblyReference.cache
+C:\Users\Пользователь\Source\Repos\ISE-21_Panova_E_V\WindowsFormsApplicationLab3\WindowsFormsApplicationLab3\obj\Debug\WindowsFormsApplicationLab3.Form1.resources
+C:\Users\Пользователь\Source\Repos\ISE-21_Panova_E_V\WindowsFormsApplicationLab3\WindowsFormsApplicationLab3\obj\Debug\WindowsFormsApplicationLab3.Properties.Resources.resources
+C:\Users\Пользователь\Source\Repos\ISE-21_Panova_E_V\WindowsFormsApplicationLab3\WindowsFormsApplicationLab3\obj\Debug\WindowsFormsApplicationLab3.csproj.GenerateResource.Cache
+C:\Users\Пользователь\Source\Repos\ISE-21_Panova_E_V\WindowsFormsApplicationLab3\WindowsFormsApplicationLab3\bin\Debug\WindowsFormsApplicationLab3.exe
+C:\Users\Пользователь\Source\Repos\ISE-21_Panova_E_V\WindowsFormsApplicationLab3\WindowsFormsApplicationLab3\bin\Debug\WindowsFormsApplicationLab3.pdb
+C:\Users\Пользователь\Source\Repos\ISE-21_Panova_E_V\WindowsFormsApplicationLab3\WindowsFormsApplicationLab3\obj\Debug\WindowsFormsApplicationLab3.exe
+C:\Users\Пользователь\Source\Repos\ISE-21_Panova_E_V\WindowsFormsApplicationLab3\WindowsFormsApplicationLab3\obj\Debug\WindowsFormsApplicationLab3.pdb
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba3\WindowsFormsApplicationLab3\bin\Debug\WindowsFormsApplicationLab3.exe.config
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba3\WindowsFormsApplicationLab3\obj\Debug\WindowsFormsApplicationLab3.exe
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplicationLaba3\WindowsFormsApplicationLab3\obj\Debug\WindowsFormsApplicationLab3.pdb
