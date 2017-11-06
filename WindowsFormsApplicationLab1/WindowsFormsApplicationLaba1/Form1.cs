@@ -295,14 +295,14 @@ namespace WindowsFormsApplicationLaba1
 
         private void аа_Click(object sender, EventArgs e)
         {
-            if (pan.IsReadyPan())
+            while (pan.IsReadyPan())
             {
-                stove.Cook();
-                MessageBox.Show("Готово! Можно вынимать.", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                checkBox1_stove.Checked = false;
-                checkBox1.Checked = true;
-                button2.Enabled = true;
-            }         
+                stove.Cook();           
+            }
+            MessageBox.Show("Готово! Можно вынимать.", "Кухня", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            checkBox1_stove.Checked = false;
+            checkBox1.Checked = true;
+            button2.Enabled = true;
         }
 
         private void buttonGetPan_Click(object sender, EventArgs e)

@@ -19,3 +19,9 @@ C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\WindowsFormsApplica
 C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab1\WindowsFormsApplicationLaba1\bin\Debug\WindowsFormsApplicationLaba1.exe.config
 C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab1\WindowsFormsApplicationLaba1\obj\Debug\WindowsFormsApplicationLaba1.exe
 C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab1\WindowsFormsApplicationLaba1\obj\Debug\WindowsFormsApplicationLaba1.pdb
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab1\WindowsFormsApplicationLaba1\bin\Debug\WindowsFormsApplicationLaba1.exe
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab1\WindowsFormsApplicationLaba1\bin\Debug\WindowsFormsApplicationLaba1.pdb
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab1\WindowsFormsApplicationLaba1\obj\Debug\WindowsFormsApplicationLaba1.csprojResolveAssemblyReference.cache
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab1\WindowsFormsApplicationLaba1\obj\Debug\WindowsFormsApplicationLaba1.Formkitchen.resources
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab1\WindowsFormsApplicationLaba1\obj\Debug\WindowsFormsApplicationLaba1.Properties.Resources.resources
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab1\WindowsFormsApplicationLaba1\obj\Debug\WindowsFormsApplicationLaba1.csproj.GenerateResource.Cache

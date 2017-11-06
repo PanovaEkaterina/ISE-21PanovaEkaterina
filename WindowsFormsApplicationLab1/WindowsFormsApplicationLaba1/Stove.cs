@@ -17,13 +17,10 @@ namespace WindowsFormsApplicationLaba1
 
         public void Cook()
         {
-            if (State)
-            {
                 while (!pan.IsReadyPan())
                 {
                     pan.Cook();
-                }
-            }
+                }       
         }
     }
 }
