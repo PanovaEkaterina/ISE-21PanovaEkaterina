@@ -9,7 +9,7 @@ namespace WindowsFormsApplicationLaba2
 {
     class Parking
     {
-        ClassArray<Stone> parking;
+        List<ClassArray<Stone>> parkingStages;
 
         int countPlaces = 20;
 
@@ -17,27 +17,51 @@ namespace WindowsFormsApplicationLaba2
 
         int placeSizeHeight = 80;
 
-        public Parking()
+        int currentLevel;
+
+        public int getCurrentLevel { get { return currentLevel; } }
+
+        public Parking(int countStages)
         {
-            parking = new ClassArray<Stone>(countPlaces, null);
+            parkingStages = new List<ClassArray<Stone>>(countStages);
+            for (int i = 0; i < countStages; i++)
+            {
+                parkingStages.Add(new ClassArray<Stone>(countPlaces, null));
+            }
+        }
+
+        public void LevelUp()
+        {
+            if (currentLevel + 1 < parkingStages.Count)
+            {
+                currentLevel++;
+            }
+        }
+
+        public void LevelDown()
+        {
+            if (currentLevel > 0)
+            {
+                currentLevel--;
+            }
         }
 
         public int PutStoneInShowcase(Stone stone)
         {
-            return parking + stone;
+            return parkingStages[currentLevel] + stone;
         }
 
         public Stone GetStoneInShowcase(int ticket)
         {
-            return parking - ticket;
+            return parkingStages[currentLevel] - ticket;
         }
 
-        public void Draw(Graphics g, int wight, int height)
+        public void Draw(Graphics g)
         {
             DrawMarking(g);
             for (int i = 0; i < countPlaces; i++)
             {
-                var stone = parking.getObject(i);
+                var stone = parkingStages[currentLevel][i];
                 if (stone != null)
                 {
                     stone.setPosition(5 + i / 5 * placeSizeWidth + 40, i % 5 * placeSizeHeight + 50);
@@ -49,15 +73,23 @@ namespace WindowsFormsApplicationLaba2
         public void DrawMarking(Graphics g)
         {
             Pen pen = new Pen(Color.Black, 3);
+            g.DrawString("L" + (currentLevel + 1), new Font("Arial", 30), new SolidBrush(Color.Blue), (countPlaces / 5) * placeSizeWidth - 70, 420);
             g.DrawRectangle(pen, 0, 0, (countPlaces / 5) * placeSizeWidth, 480);
             for (int i = 0; i < countPlaces / 5; i++)
             {
                 for (int j = 0; j < 6; ++j)
                 {
                     g.DrawLine(pen, i * placeSizeWidth, j * placeSizeHeight, i * placeSizeWidth + 110, j * placeSizeHeight);
+                    if (j < 5)
+                    {
+                        g.DrawString((i * 5 + j + 1).ToString(), new Font("Arial", 30), new SolidBrush(Color.Blue), i * placeSizeWidth + 30, j * placeSizeHeight + 20);
+
+                    }
                 }
                 g.DrawLine(pen, i * placeSizeWidth, 0, i * placeSizeWidth, 400);
             }
         }
+
+
     }
 }

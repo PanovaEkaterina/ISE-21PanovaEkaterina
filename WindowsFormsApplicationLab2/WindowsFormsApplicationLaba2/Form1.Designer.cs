@@ -35,6 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxTakeStone = new System.Windows.Forms.PictureBox();
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
+            this.buttonDown = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeStone)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +53,7 @@
             // 
             // buttonSetAdamant
             // 
-            this.buttonSetAdamant.Location = new System.Drawing.Point(723, 12);
+            this.buttonSetAdamant.Location = new System.Drawing.Point(722, 143);
             this.buttonSetAdamant.Name = "buttonSetAdamant";
             this.buttonSetAdamant.Size = new System.Drawing.Size(127, 24);
             this.buttonSetAdamant.TabIndex = 13;
@@ -60,7 +63,7 @@
             // 
             // buttonSetDiamond
             // 
-            this.buttonSetDiamond.Location = new System.Drawing.Point(723, 55);
+            this.buttonSetDiamond.Location = new System.Drawing.Point(723, 173);
             this.buttonSetDiamond.Name = "buttonSetDiamond";
             this.buttonSetDiamond.Size = new System.Drawing.Size(127, 24);
             this.buttonSetDiamond.TabIndex = 14;
@@ -70,7 +73,7 @@
             // 
             // buttonTake
             // 
-            this.buttonTake.Location = new System.Drawing.Point(723, 149);
+            this.buttonTake.Location = new System.Drawing.Point(723, 217);
             this.buttonTake.Name = "buttonTake";
             this.buttonTake.Size = new System.Drawing.Size(127, 24);
             this.buttonTake.TabIndex = 15;
@@ -81,7 +84,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(723, 192);
+            this.label1.Location = new System.Drawing.Point(724, 247);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 16;
@@ -89,24 +92,56 @@
             // 
             // pictureBoxTakeStone
             // 
-            this.pictureBoxTakeStone.Location = new System.Drawing.Point(727, 215);
+            this.pictureBoxTakeStone.Location = new System.Drawing.Point(727, 273);
             this.pictureBoxTakeStone.Name = "pictureBoxTakeStone";
-            this.pictureBoxTakeStone.Size = new System.Drawing.Size(122, 114);
+            this.pictureBoxTakeStone.Size = new System.Drawing.Size(122, 56);
             this.pictureBoxTakeStone.TabIndex = 18;
             this.pictureBoxTakeStone.TabStop = false;
             // 
             // maskedTextBox
             // 
-            this.maskedTextBox.Location = new System.Drawing.Point(768, 189);
+            this.maskedTextBox.Location = new System.Drawing.Point(769, 244);
             this.maskedTextBox.Name = "maskedTextBox";
             this.maskedTextBox.Size = new System.Drawing.Size(49, 20);
             this.maskedTextBox.TabIndex = 19;
+            // 
+            // listBoxLevels
+            // 
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.Location = new System.Drawing.Point(723, 13);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(126, 95);
+            this.listBoxLevels.TabIndex = 20;
+            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
+            // 
+            // buttonDown
+            // 
+            this.buttonDown.Location = new System.Drawing.Point(723, 114);
+            this.buttonDown.Name = "buttonDown";
+            this.buttonDown.Size = new System.Drawing.Size(23, 22);
+            this.buttonDown.TabIndex = 21;
+            this.buttonDown.Text = "<";
+            this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(826, 114);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(23, 22);
+            this.button2.TabIndex = 22;
+            this.button2.Text = ">";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 342);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonDown);
+            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.maskedTextBox);
             this.Controls.Add(this.pictureBoxTakeStone);
             this.Controls.Add(this.label1);
@@ -133,6 +168,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBoxTakeStone;
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
+        private System.Windows.Forms.ListBox listBoxLevels;
+        private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.Button button2;
     }
 }
 
