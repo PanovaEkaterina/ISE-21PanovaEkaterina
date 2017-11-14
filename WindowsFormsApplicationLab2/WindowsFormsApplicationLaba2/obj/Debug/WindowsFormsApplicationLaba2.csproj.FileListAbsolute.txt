@@ -16,3 +16,4 @@ C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитха
 C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.csproj.GenerateResource.Cache
 C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\bin\Debug\WindowsFormsApplicationLaba2.exe
 C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\bin\Debug\WindowsFormsApplicationLaba2.pdb
+C:\Users\Пользователь\Desktop\ИСЭбд-21\ТП\лабы гитхаб\WindowsFormsApplicationLab2\WindowsFormsApplicationLaba2\obj\Debug\WindowsFormsApplicationLaba2.Form2.resources

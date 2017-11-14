@@ -6,6 +6,8 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplicationLaba2
 {
+    public delegate void myDel(WindowsFormsApplicationLaba2.Stone stone);
+
     static class Program
     {
         /// <summary>

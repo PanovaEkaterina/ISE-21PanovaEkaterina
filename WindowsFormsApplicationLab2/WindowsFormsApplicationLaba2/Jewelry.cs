@@ -32,5 +32,10 @@ namespace WindowsFormsApplicationLaba2
         //цвет 
         public Color ColorStone { protected set; get; }
 
+        public virtual void setMainColor(Color color)
+        {
+            ColorStone = color;
+        }
+
     }
 }
