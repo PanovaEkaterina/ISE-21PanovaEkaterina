@@ -9,7 +9,7 @@ namespace WindowsFormsApplicationLaba2
 {
     class Diamond : Adamant
     {
-        private bool facet; //грани
+        private bool facet; 
         private Color dopColor;
 
         public Diamond(double weight, double price, int hardness, Color color, bool facet, Color dopColor) : base(weight, price, hardness, color)
@@ -22,7 +22,6 @@ namespace WindowsFormsApplicationLaba2
         {
             base.drawAdamant(g);
 
-            //грани
             if (facet)
             {
                 Pen pen = new Pen(dopColor);

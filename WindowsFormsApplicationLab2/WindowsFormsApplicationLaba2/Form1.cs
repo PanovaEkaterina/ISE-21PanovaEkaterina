@@ -12,91 +12,55 @@ namespace WindowsFormsApplicationLaba2
 {
     public partial class Form1 : Form
     {
-        Color color;
-        Color dopColor;
-        int weight;
-        int price;
-        int hardness;
+        Parking parking;
 
-        private Stone inter;
         public Form1()
         {
             InitializeComponent();
-            color = Color.White;
-            dopColor = Color.Yellow;
-            weight = 15;
-            price = 5000;
-            hardness = 10;
-            buttonSelectColor.BackColor = color;
-            buttonSelectDopColor.BackColor = dopColor;
+            parking = new Parking();
+            Draw();
 
         }
+        private void Draw()
+        {
+            Bitmap bmp = new Bitmap(pictureBox.Width, pictureBox.Height);
+            Graphics gr = Graphics.FromImage(bmp);
+            parking.Draw(gr, pictureBox.Width, pictureBox.Height);
+            pictureBox.Image = bmp;
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void buttonSelectColor_Click(object sender, EventArgs e)
-        {
-            ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                color = cd.Color;
-                buttonSelectColor.BackColor = color;
-            }
-        }
-
-        private void buttonSelectDopColor_Click(object sender, EventArgs e)
-        {
-            ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                dopColor = cd.Color;
-                buttonSelectDopColor.BackColor = dopColor;
-            }
-        }
-
-        private bool checkFields()
-        {
-            if (!int.TryParse(textBoxWeight.Text, out weight))
-            {
-                return false;
-            }
-            if (!int.TryParse(textBoxPrice.Text, out price))
-            {
-                return false;
-            }
-            if (!int.TryParse(textBoxHardness.Text, out hardness))
-            {
-                return false;
-            }
-            return true;
-        }
-
         private void buttonSetAdamant_Click(object sender, EventArgs e)
         {
-            if (checkFields())
+            ColorDialog dialog = new ColorDialog();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                inter = new Adamant(weight, price, hardness, color);
-                Bitmap bmp = new Bitmap(pictureBox.Width, pictureBox.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                inter.drawStone(gr);
-                pictureBox.Image = bmp;
+                var stone = new Adamant(100, 4, 1, dialog.Color);
+                int place = parking.PutStoneInShowcase(stone);
+                Draw();
+                MessageBox.Show("Ваше место: " + place);
             }
         }
 
         private void buttonSetDiamond_Click(object sender, EventArgs e)
         {
-            if (checkFields())
+            ColorDialog dialog = new ColorDialog();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                inter = new Diamond(weight, price,hardness,color, checkBoxFacet.Checked,  dopColor);
-                Bitmap bmp = new Bitmap(pictureBox.Width, pictureBox.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                inter.drawStone(gr);
-                pictureBox.Image = bmp;
+                ColorDialog dialogDop = new ColorDialog();
+                if (dialogDop.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    var stone = new Diamond(100, 4, 1, dialog.Color, true, dialog.Color);
+                    int place = parking.PutStoneInShowcase(stone);
+                    Draw();
+                    MessageBox.Show("Ваше место: " + place);
+                }
             }
-
         }
 
         private void textBoxWeight_TextChanged(object sender, EventArgs e)
@@ -122,6 +86,21 @@ namespace WindowsFormsApplicationLaba2
         private void pictureBox_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonTake_Click(object sender, EventArgs e)
+        {
+            if (maskedTextBox.Text != "")
+            {
+                var car = parking.GetStoneInShowcase(Convert.ToInt32(maskedTextBox.Text));
+
+                Bitmap bmp = new Bitmap(pictureBoxTakeStone.Width, pictureBoxTakeStone.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                car.setPosition(5, 5);
+                car.drawStone(gr);
+                pictureBoxTakeStone.Image = bmp;
+                Draw();
+            }
         }
     }
 }
