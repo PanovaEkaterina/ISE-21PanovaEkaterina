@@ -17,16 +17,24 @@ namespace WindowsFormsApplicationLaba2
         public Form1()
         {
             InitializeComponent();
-            parking = new Parking();
+            parking = new Parking(5);
+            for (int i = 1; i < 6; i++)
+            {
+                listBoxLevels.Items.Add("Уровень " + i);
+            }
+            listBoxLevels.SelectedIndex = parking.getCurrentLevel;
             Draw();
-
         }
+
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBox.Width, pictureBox.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            parking.Draw(gr, pictureBox.Width, pictureBox.Height);
-            pictureBox.Image = bmp;
+            if (listBoxLevels.SelectedIndex > -1)
+            {
+                Bitmap bmp = new Bitmap(pictureBox.Width, pictureBox.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                parking.Draw(gr);
+                pictureBox.Image = bmp;
+            }
         }
 
 
@@ -90,17 +98,48 @@ namespace WindowsFormsApplicationLaba2
 
         private void buttonTake_Click(object sender, EventArgs e)
         {
-            if (maskedTextBox.Text != "")
+            if (listBoxLevels.SelectedIndex > -1)
             {
-                var car = parking.GetStoneInShowcase(Convert.ToInt32(maskedTextBox.Text));
+                string level = listBoxLevels.Items[listBoxLevels.SelectedIndex].ToString();
 
-                Bitmap bmp = new Bitmap(pictureBoxTakeStone.Width, pictureBoxTakeStone.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                car.setPosition(5, 5);
-                car.drawStone(gr);
-                pictureBoxTakeStone.Image = bmp;
-                Draw();
+                if (maskedTextBox.Text != "")
+                {
+                    Stone stone = parking.GetStoneInShowcase(Convert.ToInt32(maskedTextBox.Text));
+                    if (stone != null)
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTakeStone.Width, pictureBoxTakeStone.Height);
+                        Graphics gr = Graphics.FromImage(bmp);
+                        stone.setPosition(5, 5);
+                        stone.drawStone(gr);
+                        pictureBoxTakeStone.Image = bmp;
+                        Draw();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Извинте, на этом месте нет машины");
+                    }
+
+                }
             }
+        }
+
+        private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDown_Click(object sender, EventArgs e)
+        {
+            parking.LevelDown();
+            listBoxLevels.SelectedIndex = parking.getCurrentLevel;
+            Draw();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            parking.LevelUp();
+            listBoxLevels.SelectedIndex = parking.getCurrentLevel;
+            Draw();
         }
     }
 }
