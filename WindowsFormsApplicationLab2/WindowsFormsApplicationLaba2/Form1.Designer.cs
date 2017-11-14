@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.buttonSetAdamant = new System.Windows.Forms.Button();
-            this.buttonSetDiamond = new System.Windows.Forms.Button();
+            this.buttonSetStone = new System.Windows.Forms.Button();
             this.buttonTake = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxTakeStone = new System.Windows.Forms.PictureBox();
@@ -51,25 +50,15 @@
             this.pictureBox.TabStop = false;
             this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
             // 
-            // buttonSetAdamant
+            // buttonSetStone
             // 
-            this.buttonSetAdamant.Location = new System.Drawing.Point(722, 143);
-            this.buttonSetAdamant.Name = "buttonSetAdamant";
-            this.buttonSetAdamant.Size = new System.Drawing.Size(127, 24);
-            this.buttonSetAdamant.TabIndex = 13;
-            this.buttonSetAdamant.Text = "Добавить алмаз";
-            this.buttonSetAdamant.UseVisualStyleBackColor = true;
-            this.buttonSetAdamant.Click += new System.EventHandler(this.buttonSetAdamant_Click);
-            // 
-            // buttonSetDiamond
-            // 
-            this.buttonSetDiamond.Location = new System.Drawing.Point(723, 173);
-            this.buttonSetDiamond.Name = "buttonSetDiamond";
-            this.buttonSetDiamond.Size = new System.Drawing.Size(127, 24);
-            this.buttonSetDiamond.TabIndex = 14;
-            this.buttonSetDiamond.Text = "Добавить бриллиант";
-            this.buttonSetDiamond.UseVisualStyleBackColor = true;
-            this.buttonSetDiamond.Click += new System.EventHandler(this.buttonSetDiamond_Click);
+            this.buttonSetStone.Location = new System.Drawing.Point(722, 164);
+            this.buttonSetStone.Name = "buttonSetStone";
+            this.buttonSetStone.Size = new System.Drawing.Size(127, 24);
+            this.buttonSetStone.TabIndex = 13;
+            this.buttonSetStone.Text = "Добавить камень";
+            this.buttonSetStone.UseVisualStyleBackColor = true;
+            this.buttonSetStone.Click += new System.EventHandler(this.buttonSetAdamant_Click);
             // 
             // buttonTake
             // 
@@ -146,8 +135,7 @@
             this.Controls.Add(this.pictureBoxTakeStone);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonTake);
-            this.Controls.Add(this.buttonSetDiamond);
-            this.Controls.Add(this.buttonSetAdamant);
+            this.Controls.Add(this.buttonSetStone);
             this.Controls.Add(this.pictureBox);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -162,8 +150,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Button buttonSetAdamant;
-        private System.Windows.Forms.Button buttonSetDiamond;
+        private System.Windows.Forms.Button buttonSetStone;
         private System.Windows.Forms.Button buttonTake;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBoxTakeStone;

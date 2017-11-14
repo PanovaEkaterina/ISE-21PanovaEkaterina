@@ -36,5 +36,10 @@ namespace WindowsFormsApplicationLaba2
 
         }
 
+        public void setDopColor(Color color)
+        {
+            dopColor = color;
+        }
+
     }
 }

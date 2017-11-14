@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplicationLaba2
 {
-    interface Stone
+    public interface Stone
     {
         void drawStone(Graphics g);
         void setPosition(int x, int y);
+        void setMainColor(Color color);
     }
 }

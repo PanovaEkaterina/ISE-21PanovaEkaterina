@@ -13,6 +13,7 @@ namespace WindowsFormsApplicationLaba2
     public partial class Form1 : Form
     {
         Parking parking;
+        Form2 form;
 
         public Form1()
         {
@@ -45,13 +46,22 @@ namespace WindowsFormsApplicationLaba2
 
         private void buttonSetAdamant_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            form = new Form2();
+            form.AddEvent(AddStone);
+            form.Show();
+        }
+
+        public void AddStone(Stone stone)
+        {
+            if (stone != null)
             {
-                var stone = new Adamant(100, 4, 1, dialog.Color);
                 int place = parking.PutStoneInShowcase(stone);
-                Draw();
-                MessageBox.Show("Ваше место: " + place);
+                if (place > -1)
+                {
+                    Draw();
+                    MessageBox.Show("Ваше место:" + place);
+                }
+                else MessageBox.Show("Машину не удалось поставить");
             }
         }
 
