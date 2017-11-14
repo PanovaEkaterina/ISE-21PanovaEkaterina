@@ -37,9 +37,9 @@ namespace WindowsFormsApplicationLaba2
             {
                 if (value > 0 && value < 10000)
                 {
-                    base.Weight = value;
+                    base.Price = value;
                 }
-                else { base.Weight = 5000; }
+                else { base.Price = 5000; }
             }
         }
 
@@ -54,9 +54,9 @@ namespace WindowsFormsApplicationLaba2
             {
                 if (value > 0 && value < 11)
                 {
-                    base.Weight = value;
+                    base.Hardness = value;
                 }
-                else { base.Weight = 10; }
+                else { base.Hardness = 10; }
             }
         }
 
