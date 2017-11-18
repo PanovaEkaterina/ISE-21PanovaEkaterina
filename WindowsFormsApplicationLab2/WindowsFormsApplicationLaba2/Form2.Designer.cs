@@ -201,7 +201,7 @@
             // panelColorYellow
             // 
             this.panelColorYellow.AllowDrop = true;
-            this.panelColorYellow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panelColorYellow.BackColor = System.Drawing.Color.Yellow;
             this.panelColorYellow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelColorYellow.Location = new System.Drawing.Point(16, 99);
             this.panelColorYellow.Name = "panelColorYellow";

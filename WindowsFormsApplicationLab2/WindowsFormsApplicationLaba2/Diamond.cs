@@ -18,6 +18,20 @@ namespace WindowsFormsApplicationLaba2
             this.dopColor = dopColor;
         }
 
+        public Diamond(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 6)
+            {
+                Weight = Convert.ToInt32(strs[0]);
+                Price = Convert.ToInt32(strs[1]);
+                Hardness = Convert.ToInt32(strs[2]);
+                ColorStone = Color.FromName(strs[3]);
+                facet = Convert.ToBoolean(strs[4]);
+                dopColor = Color.FromName(strs[5]);
+            }
+        }
+
         protected override void drawAdamant(Graphics g)
         {
             base.drawAdamant(g);
@@ -39,6 +53,11 @@ namespace WindowsFormsApplicationLaba2
         public void setDopColor(Color color)
         {
             dopColor = color;
+        }
+
+        public override string getInfo()
+        {
+            return Weight + ";" + Price + ";" + Hardness + ";" + ColorStone.Name + ";" + facet + ";" + dopColor.Name;
         }
 
     }

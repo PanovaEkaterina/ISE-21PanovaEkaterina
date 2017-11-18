@@ -12,5 +12,6 @@ namespace WindowsFormsApplicationLaba2
         void drawStone(Graphics g);
         void setPosition(int x, int y);
         void setMainColor(Color color);
+        string getInfo();
     }
 }

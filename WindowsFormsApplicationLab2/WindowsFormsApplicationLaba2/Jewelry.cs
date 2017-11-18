@@ -37,5 +37,6 @@ namespace WindowsFormsApplicationLaba2
             ColorStone = color;
         }
 
+        public abstract string getInfo();
     }
 }
