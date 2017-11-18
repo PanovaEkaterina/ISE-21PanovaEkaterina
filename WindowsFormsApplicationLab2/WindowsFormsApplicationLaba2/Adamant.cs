@@ -70,6 +70,21 @@ namespace WindowsFormsApplicationLaba2
             srartRosX = rand.Next(10, 200);
             srartRosY = rand.Next(10, 200);
         }
+
+        public Adamant(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 4)
+            {
+                Weight = Convert.ToInt32(strs[0]);
+                Price = Convert.ToInt32(strs[1]);
+                Hardness = Convert.ToInt32(strs[2]);
+                ColorStone = Color.FromName(strs[3]);
+            }
+            Random rand = new Random();
+            srartRosX = rand.Next(10, 200);
+            srartRosY = rand.Next(10, 200);
+        }
         public override void drawStone(Graphics g)
         {
             drawAdamant(g);
@@ -83,6 +98,11 @@ namespace WindowsFormsApplicationLaba2
             g.DrawLine(pen, srartRosX - 30, srartRosY - 30, srartRosX - 25, srartRosY - 35);
             g.DrawLine(pen, srartRosX + 30, srartRosY - 30, srartRosX + 25, srartRosY - 35);
             g.DrawLine(pen, srartRosX - 25, srartRosY - 35, srartRosX + 25, srartRosY - 35);
+        }
+
+        public override string getInfo()
+        {
+           return Weight + ";" + Price + ";" + Hardness + ";" + ColorStone.Name;
         }
     }
 }
