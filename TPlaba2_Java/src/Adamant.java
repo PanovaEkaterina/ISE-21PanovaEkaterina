@@ -2,7 +2,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Adamant extends Jewelry {
-
 	public Adamant(int weight, int price, int hardness, Color color) {
 		this.Weight = weight;
 		this.Price = price;
