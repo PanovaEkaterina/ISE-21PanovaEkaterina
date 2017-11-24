@@ -1,52 +1,49 @@
+import java.util.Dictionary;
+import java.util.Hashtable;
+
 public class ClassArray<T extends Stone> {
-	private T[] places;
 	private T defaultValue;
+	private int maxCount;
+	private Dictionary<Integer, T> places;
 
 	public ClassArray(int sizes, T defVal) {
 		defaultValue = defVal;
-		places = (T[]) new Stone[sizes];
-		for (int i = 0; i < places.length; i++) {
-			places[i] = defaultValue;
-		}
-	}
+		places = new Hashtable<Integer, T>();
+		maxCount = sizes;
 
-	public T getObject(int ind) {
-		if (ind > -1 && ind < places.length) {
-			return places[ind];
-		}
-		return defaultValue;
 	}
 
 	public static <T extends Stone> int plus(ClassArray<T> p, T stone) {
-		for (int i = 0; i < p.places.length; i++) {
+		if (p.places.size() == p.maxCount) {
+			return -1;
+		}
+		for (int i = 0; i < p.places.size(); i++) {
 			if (p.CheckFreePlace(i)) {
-				p.places[i] = stone;
+				p.places.put(i, stone);
 				return i;
 			}
 		}
-		return -1;
+		p.places.put(p.places.size(), stone);
+		return p.places.size() - 1;
 	}
 
 	public static <T extends Stone> T minus(ClassArray<T> p, int index) {
-		if (!p.CheckFreePlace(index)) {
-			T stone = p.places[index];
-			p.places[index] = p.defaultValue;
+		if (((Hashtable<Integer, T>) p.places).containsKey(index)) {
+			T stone = p.places.get(index);
+			p.places.remove(index);
 			return stone;
 		}
 		return p.defaultValue;
 	}
 
 	private boolean CheckFreePlace(int index) {
-		if (index < 0 || index > places.length) {
-			return false;
-		}
-		if (places[index] == null) {
-			return true;
-		}
-		if (places[index].equals(defaultValue)) {
-			return true;
-		}
+		return !((Hashtable<Integer, T>) places).containsKey(index);
+	}
 
-		return false;
+	public T getStone(int ind) {
+		if (((Hashtable<Integer, T>) places).containsKey(ind)) {
+			return places.get(ind);
+		}
+		return defaultValue;
 	}
 }

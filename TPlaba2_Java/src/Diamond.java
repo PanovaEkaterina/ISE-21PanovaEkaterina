@@ -13,7 +13,6 @@ public class Diamond extends Adamant {
 
 	protected void drawAdamant(Graphics g) {
 		super.drawAdamant(g);
-
 		if (facet) {
 			g.setColor(dopColor);
 			g.drawLine(srartRosX - 30, srartRosY - 30, srartRosX + 30, srartRosY - 30);
@@ -24,7 +23,5 @@ public class Diamond extends Adamant {
 			g.drawLine(srartRosX - 10, srartRosY - 30, srartRosX, srartRosY);
 			g.drawLine(srartRosX + 13, srartRosY - 30, srartRosX, srartRosY);
 		}
-
 	}
-
 }

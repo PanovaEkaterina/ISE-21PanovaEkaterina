@@ -1,24 +1,27 @@
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Graphics;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.JCheckBox;
 import javax.swing.JColorChooser;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
 
 public class Main {
-
 	private JFrame frame;
 	private JTextField textFieldTake;
 	Parking parking;
+
+	private String[] elements = new String[6];
+
+	JList listlevel;
+	JPanel panel;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -34,8 +37,14 @@ public class Main {
 	}
 
 	public Main() {
-		parking = new Parking();
+		parking = new Parking(5);
 		initialize();
+
+		for (int i = 0; i < 5; i++) {
+			elements[i] = "Уровень " + (i + 1);
+		}
+
+		listlevel.setSelectedIndex(parking.getCurrentLevel());
 	}
 
 	private void initialize() {
@@ -44,7 +53,7 @@ public class Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JPanel panel = new Panel_parking(parking);
+		panel = new Panel_parking(parking);
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel.setBounds(10, 11, 505, 239);
 		frame.getContentPane().add(panel);
@@ -62,7 +71,7 @@ public class Main {
 				}
 			}
 		});
-		btnNewButtonAdamant.setBounds(525, 11, 125, 23);
+		btnNewButtonAdamant.setBounds(525, 131, 125, 23);
 		frame.getContentPane().add(btnNewButtonAdamant);
 
 		JButton buttonDiamond = new JButton(
@@ -81,16 +90,16 @@ public class Main {
 				}
 			}
 		});
-		buttonDiamond.setBounds(525, 45, 125, 23);
+		buttonDiamond.setBounds(525, 165, 125, 23);
 		frame.getContentPane().add(buttonDiamond);
 
 		textFieldTake = new JTextField();
-		textFieldTake.setBounds(593, 143, 57, 20);
+		textFieldTake.setBounds(581, 199, 57, 20);
 		frame.getContentPane().add(textFieldTake);
 		textFieldTake.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("\u041C\u0435\u0441\u0442\u043E");
-		lblNewLabel.setBounds(525, 146, 46, 14);
+		lblNewLabel.setBounds(525, 202, 46, 14);
 		frame.getContentPane().add(lblNewLabel);
 
 		JButton btnGetStone = new JButton("\u0417\u0430\u0431\u0440\u0430\u0442\u044C");
@@ -106,8 +115,34 @@ public class Main {
 				}
 			}
 		});
-		btnGetStone.setBounds(546, 178, 89, 23);
+		btnGetStone.setBounds(550, 227, 89, 23);
 		frame.getContentPane().add(btnGetStone);
+
+		listlevel = new JList(elements);
+		listlevel.setBounds(525, 11, 125, 73);
+		frame.getContentPane().add(listlevel);
+
+		JButton btnDown = new JButton("<");
+		btnDown.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				parking.LevelDown();
+				listlevel.setSelectedIndex(parking.getCurrentLevel());
+				panel.repaint();
+			}
+		});
+		btnDown.setBounds(525, 95, 41, 23);
+		frame.getContentPane().add(btnDown);
+
+		JButton btnUp = new JButton(">");
+		btnUp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				parking.LevelUp();
+				listlevel.setSelectedIndex(parking.getCurrentLevel());
+				panel.repaint();
+			}
+		});
+		btnUp.setBounds(609, 95, 41, 23);
+		frame.getContentPane().add(btnUp);
 	}
 
 	private boolean checkPlace(String str) {
