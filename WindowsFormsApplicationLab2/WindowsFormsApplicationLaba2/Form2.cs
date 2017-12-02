@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace WindowsFormsApplicationLaba2
 
     public partial class Form2 : Form
     {
+        private Logger log;
         Stone stone = null;
         public Stone getStone { get { return stone; } }
 
@@ -42,6 +44,7 @@ namespace WindowsFormsApplicationLaba2
         public Form2()
         {
             InitializeComponent();
+            log = LogManager.GetCurrentClassLogger();
             panelColorBlack.MouseDown += panelColor_MouseDown;
             panelColorYellow.MouseDown += panelColor_MouseDown;
             panelColorWhite.MouseDown += panelColor_MouseDown;
@@ -55,6 +58,7 @@ namespace WindowsFormsApplicationLaba2
 
         private void labelAdamant_MouseDown(object sender, MouseEventArgs e)
         {
+            log.Info("Перемещение алмаза");
             buttonAdamant.DoDragDrop(buttonAdamant.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
@@ -70,11 +74,13 @@ namespace WindowsFormsApplicationLaba2
 
         private void labelDiamond_MouseDown(object sender, MouseEventArgs e)
         {
+            log.Info("Перемещение бриллианта");
             buttonDiamond.DoDragDrop(buttonDiamond.Text, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            log.Info("Добавление камня");
             if (eventAddStone != null)
             {
                 eventAddStone(stone);
@@ -111,6 +117,7 @@ namespace WindowsFormsApplicationLaba2
 
         private void labelBaseColor_DragDrop(object sender, DragEventArgs e)
         {
+            log.Info("Выбор цвета:" + (Color)e.Data.GetData(typeof(Color)));
             if (stone != null)
             {
                 stone.setMainColor((Color)e.Data.GetData(typeof(Color)));
@@ -128,6 +135,7 @@ namespace WindowsFormsApplicationLaba2
 
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)
         {
+            log.Info("Выбор доп.цвета:" + (Color)e.Data.GetData(typeof(Color)));
             if (stone != null)
             {
                 if (stone is Diamond)
@@ -135,7 +143,7 @@ namespace WindowsFormsApplicationLaba2
                     (stone as Diamond).setDopColor((Color)e.Data.GetData(typeof(Color)));
                     DrawStone();
                 }
-            }
+            }      
         }
 
         private void panelColor_MouseDown(object sender, MouseEventArgs e)
@@ -154,6 +162,16 @@ namespace WindowsFormsApplicationLaba2
         }
 
         private void panelStone_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelColor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonBaseColor_Click(object sender, EventArgs e)
         {
 
         }
