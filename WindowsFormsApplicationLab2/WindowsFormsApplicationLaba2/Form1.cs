@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,14 @@ namespace WindowsFormsApplicationLaba2
 {
     public partial class Form1 : Form
     {
+        private Logger log;
         Parking parking;
         Form2 form;
 
         public Form1()
         {
             InitializeComponent();
+            log = LogManager.GetCurrentClassLogger();
             parking = new Parking(5);
             for (int i = 1; i < 6; i++)
             {
@@ -46,22 +49,30 @@ namespace WindowsFormsApplicationLaba2
 
         private void buttonSetAdamant_Click(object sender, EventArgs e)
         {
+            log.Info("Добавление камня:" + parking.getCurrentLevel);
             form = new Form2();
             form.AddEvent(AddStone);
             form.Show();
+
         }
 
         public void AddStone(Stone stone)
         {
             if (stone != null)
             {
-                int place = parking.PutStoneInShowcase(stone);
-                if (place > -1)
-                {
+                try {
+                    int place = parking.PutStoneInShowcase(stone);
                     Draw();
                     MessageBox.Show("Ваше место:" + place);
                 }
-                else MessageBox.Show("Машину не удалось поставить");
+                catch(ParkingOverflowException ex)
+                {
+                    MessageBox.Show(ex.Message,"Ошибка переполнения",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Общая ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -114,19 +125,26 @@ namespace WindowsFormsApplicationLaba2
 
                 if (maskedTextBox.Text != "")
                 {
-                    Stone stone = parking.GetStoneInShowcase(Convert.ToInt32(maskedTextBox.Text));
-                    if (stone != null)
-                    {
-                        Bitmap bmp = new Bitmap(pictureBoxTakeStone.Width, pictureBoxTakeStone.Height);
-                        Graphics gr = Graphics.FromImage(bmp);
-                        stone.setPosition(5, 5);
-                        stone.drawStone(gr);
-                        pictureBoxTakeStone.Image = bmp;
-                        Draw();
+                    try {
+                        Stone stone = parking.GetStoneInShowcase(Convert.ToInt32(maskedTextBox.Text));
+                        if (stone != null)
+                        {
+                            Bitmap bmp = new Bitmap(pictureBoxTakeStone.Width, pictureBoxTakeStone.Height);
+                            Graphics gr = Graphics.FromImage(bmp);
+                            stone.setPosition(5, 5);
+                            stone.drawStone(gr);
+                            pictureBoxTakeStone.Image = bmp;
+                            Draw();
+                            log.Info("Изъятие украшения с места:" + Convert.ToInt32(maskedTextBox.Text) + "успешно");
+                        }
                     }
-                    else
+                    catch (ParkingIndexOutOfRangeException ex)
                     {
-                        MessageBox.Show("Извинте, на этом месте нет машины");
+                        MessageBox.Show(ex.Message, "Неверный номер", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Общая ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -141,6 +159,7 @@ namespace WindowsFormsApplicationLaba2
         private void buttonDown_Click(object sender, EventArgs e)
         {
             parking.LevelDown();
+            log.Info("Переход на уровень ниже Текущий уровень:" + parking.getCurrentLevel);
             listBoxLevels.SelectedIndex = parking.getCurrentLevel;
             Draw();
         }
@@ -148,6 +167,7 @@ namespace WindowsFormsApplicationLaba2
         private void button2_Click(object sender, EventArgs e)
         {
             parking.LevelUp();
+            log.Info("Переход на уровень выше Текущий уровень:" + parking.getCurrentLevel);
             listBoxLevels.SelectedIndex = parking.getCurrentLevel;
             Draw();
         }

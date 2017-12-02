@@ -52,14 +52,14 @@
             // 
             this.pictureBox.Location = new System.Drawing.Point(13, 30);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(704, 300);
+            this.pictureBox.Size = new System.Drawing.Size(279, 578);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // buttonSetStone
             // 
-            this.buttonSetStone.Location = new System.Drawing.Point(722, 164);
+            this.buttonSetStone.Location = new System.Drawing.Point(351, 169);
             this.buttonSetStone.Name = "buttonSetStone";
             this.buttonSetStone.Size = new System.Drawing.Size(127, 24);
             this.buttonSetStone.TabIndex = 13;
@@ -69,7 +69,7 @@
             // 
             // buttonTake
             // 
-            this.buttonTake.Location = new System.Drawing.Point(723, 217);
+            this.buttonTake.Location = new System.Drawing.Point(351, 209);
             this.buttonTake.Name = "buttonTake";
             this.buttonTake.Size = new System.Drawing.Size(127, 24);
             this.buttonTake.TabIndex = 15;
@@ -80,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(724, 247);
+            this.label1.Location = new System.Drawing.Point(348, 247);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 16;
@@ -88,7 +88,7 @@
             // 
             // pictureBoxTakeStone
             // 
-            this.pictureBoxTakeStone.Location = new System.Drawing.Point(727, 273);
+            this.pictureBoxTakeStone.Location = new System.Drawing.Point(351, 270);
             this.pictureBoxTakeStone.Name = "pictureBoxTakeStone";
             this.pictureBoxTakeStone.Size = new System.Drawing.Size(122, 56);
             this.pictureBoxTakeStone.TabIndex = 18;
@@ -96,7 +96,7 @@
             // 
             // maskedTextBox
             // 
-            this.maskedTextBox.Location = new System.Drawing.Point(769, 244);
+            this.maskedTextBox.Location = new System.Drawing.Point(428, 244);
             this.maskedTextBox.Name = "maskedTextBox";
             this.maskedTextBox.Size = new System.Drawing.Size(49, 20);
             this.maskedTextBox.TabIndex = 19;
@@ -104,7 +104,7 @@
             // listBoxLevels
             // 
             this.listBoxLevels.FormattingEnabled = true;
-            this.listBoxLevels.Location = new System.Drawing.Point(723, 13);
+            this.listBoxLevels.Location = new System.Drawing.Point(351, 27);
             this.listBoxLevels.Name = "listBoxLevels";
             this.listBoxLevels.Size = new System.Drawing.Size(126, 95);
             this.listBoxLevels.TabIndex = 20;
@@ -112,7 +112,7 @@
             // 
             // buttonDown
             // 
-            this.buttonDown.Location = new System.Drawing.Point(723, 114);
+            this.buttonDown.Location = new System.Drawing.Point(351, 128);
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(23, 22);
             this.buttonDown.TabIndex = 21;
@@ -122,7 +122,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(826, 114);
+            this.button2.Location = new System.Drawing.Point(454, 128);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(23, 22);
             this.button2.TabIndex = 22;
@@ -136,7 +136,7 @@
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(862, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(533, 24);
             this.menuStrip1.TabIndex = 23;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -159,7 +159,7 @@
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click_1);
             // 
@@ -176,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 342);
+            this.ClientSize = new System.Drawing.Size(533, 620);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.listBoxLevels);

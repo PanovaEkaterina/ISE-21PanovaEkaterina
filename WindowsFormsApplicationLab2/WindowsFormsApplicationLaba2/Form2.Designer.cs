@@ -141,6 +141,7 @@
             this.buttonBaseColor.TabIndex = 1;
             this.buttonBaseColor.Text = "Основной цвет";
             this.buttonBaseColor.UseVisualStyleBackColor = true;
+            this.buttonBaseColor.Click += new System.EventHandler(this.buttonBaseColor_Click);
             this.buttonBaseColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelBaseColor_DragDrop);
             this.buttonBaseColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelBaseColor_DragEnter);
             // 
@@ -166,6 +167,7 @@
             this.panelColor.Name = "panelColor";
             this.panelColor.Size = new System.Drawing.Size(182, 290);
             this.panelColor.TabIndex = 4;
+            this.panelColor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelColor_Paint);
             this.panelColor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelColor_MouseDown);
             // 
             // panelColorBlue

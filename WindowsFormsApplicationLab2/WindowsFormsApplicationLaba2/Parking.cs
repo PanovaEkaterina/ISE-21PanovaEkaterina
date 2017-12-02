@@ -10,7 +10,7 @@ namespace WindowsFormsApplicationLaba2
     {
         List<ClassArray<Stone>> parkingStages;
 
-        int countPlaces = 20;
+        int countPlaces = 5;
 
         int placeSizeWidth = 210;
 

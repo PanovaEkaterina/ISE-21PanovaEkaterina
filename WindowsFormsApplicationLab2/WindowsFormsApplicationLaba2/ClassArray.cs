@@ -23,7 +23,7 @@ namespace WindowsFormsApplicationLaba2
         {
             if (p.places.Count == p.maxCount)
             {
-                return -1;
+                throw new ParkingOverflowException();
             }
             for (int i = 0; i < p.places.Count; i++)
             {
@@ -45,7 +45,7 @@ namespace WindowsFormsApplicationLaba2
                 p.places.Remove(index);
                 return stone;
             }
-            return p.defaultValue;
+            throw new ParkingIndexOutOfRangeException();
         }
 
         private bool CheckFreePlace(int index)
