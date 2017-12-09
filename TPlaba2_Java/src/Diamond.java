@@ -1,9 +1,13 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-public class Diamond extends Adamant {
+public class Diamond extends Adamant implements Serializable {
 	private boolean facet;
-	private Color dopColor;
+	transient private Color dopColor;
 
 	public Diamond(int weight, int price, int hardness, Color color, boolean facet, Color dopColor) {
 		super(weight, price, hardness, color);
@@ -27,5 +31,34 @@ public class Diamond extends Adamant {
 
 	public void setDopColor(Color color) {
 		dopColor = color;
+	}
+
+	private void writeObject(ObjectOutputStream s) throws IOException {
+		s.defaultWriteObject();
+		s.writeInt(ColorStone.getRed());
+		s.writeInt(ColorStone.getGreen());
+		s.writeInt(ColorStone.getBlue());
+		s.writeInt(dopColor.getRed());
+		s.writeInt(dopColor.getGreen());
+		s.writeInt(dopColor.getBlue());
+	}
+
+	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+		s.defaultReadObject();
+		int red = s.readInt();
+		int green = s.readInt();
+		int blue = s.readInt();
+		ColorStone = new Color(red, green, blue);
+		int red1 = s.readInt();
+		int green1 = s.readInt();
+		int blue1 = s.readInt();
+		dopColor = new Color(red1, green1, blue1);
+	}
+
+	@Override
+	public String getInfo() {
+		// TODO Auto-generated method stub
+		return Weight + ";" + Price + ";" + Hardness + ";" + ColorStone + ";" + true + ";" + dopColor;
+
 	}
 }

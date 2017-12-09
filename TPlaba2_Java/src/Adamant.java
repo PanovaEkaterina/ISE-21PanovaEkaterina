@@ -1,7 +1,11 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-public class Adamant extends Jewelry {
+public class Adamant extends Jewelry implements Serializable {
 	public Adamant(int weight, int price, int hardness, Color color) {
 		this.Weight = weight;
 		this.Price = price;
@@ -57,4 +61,25 @@ public class Adamant extends Jewelry {
 		g.drawLine(srartRosX + 30, srartRosY - 30, srartRosX + 25, srartRosY - 35);
 		g.drawLine(srartRosX - 25, srartRosY - 35, srartRosX + 25, srartRosY - 35);
 	}
+	
+	public String getInfo() {
+		// TODO Auto-generated method stub
+		return Weight + ";" + Price + ";" + Hardness + ";" + ColorStone;
+
+	}
+	
+	private void writeObject(ObjectOutputStream s) throws IOException {
+        s.defaultWriteObject();
+        s.writeInt(ColorStone.getRed());
+        s.writeInt(ColorStone.getGreen());
+        s.writeInt(ColorStone.getBlue());
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        s.defaultReadObject();
+        int red = s.readInt();
+        int green = s.readInt();
+        int blue = s.readInt();
+        ColorStone = new Color(red, green, blue);
+    }
 }

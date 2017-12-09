@@ -7,7 +7,7 @@ public abstract class Jewelry implements Stone {
 	public int Weight;
 	public int Price;
 	public int Hardness;
-	public Color ColorStone;
+	transient public Color ColorStone;
 
 	protected abstract void setWeight(int w);
 
@@ -31,4 +31,6 @@ public abstract class Jewelry implements Stone {
 	public void setMainColor(Color color) {
 		ColorStone = color;
 	}
+
+	public abstract String getInfo();
 }
