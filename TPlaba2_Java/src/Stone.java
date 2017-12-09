@@ -7,4 +7,6 @@ public interface Stone {
 	void setPosition(int x, int y);
 
 	void setMainColor(Color color);
+	
+	String getInfo();
 }

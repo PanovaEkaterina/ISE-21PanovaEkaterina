@@ -8,10 +8,15 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JColorChooser;
+import javax.swing.JFileChooser;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class Main {
 	private JFrame frame;
@@ -135,6 +140,46 @@ public class Main {
 		});
 		btnAdd.setBounds(257, 146, 167, 23);
 		frame.getContentPane().add(btnAdd);
+
+		JMenuBar menuBar = new JMenuBar();
+		JMenu menu = new JMenu("File");
+		frame.setJMenuBar(menuBar);
+		menuBar.add(menu);
+		JMenuItem menuSave = new JMenuItem("Save");
+		menu.add(menuSave);
+		JMenuItem menuOpen = new JMenuItem("Open");
+		menu.add(menuOpen);
+
+		menuSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				JFileChooser filesave = new JFileChooser();
+
+				if (filesave.showDialog(null, "Save") == JFileChooser.APPROVE_OPTION) {
+					try {
+						if (parking.save(filesave.getSelectedFile().getPath()))
+							if (filesave.getSelectedFile().getPath() != null)
+								JOptionPane.showMessageDialog(frame, "Сохранение прошло успешно");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						JOptionPane.showMessageDialog(frame, "Не получилось сохранить");
+					}
+				}
+			}
+		});
+
+		menuOpen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFileChooser fileopen = new JFileChooser();
+				if (fileopen.showDialog(null, "Open") == JFileChooser.APPROVE_OPTION) {
+					if (parking.load(fileopen.getSelectedFile().getPath()))
+						if (fileopen.getSelectedFile().getPath() != null)
+							JOptionPane.showMessageDialog(frame, "Закрузили");
+				}
+				panel.repaint();
+			}
+		});
 
 	}
 

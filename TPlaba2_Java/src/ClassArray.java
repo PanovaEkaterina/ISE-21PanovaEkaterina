@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-public class ClassArray<T extends Stone> {
+public class ClassArray<T extends Stone> implements Serializable {
 	private T defaultValue;
 	private int maxCount;
 	private Dictionary<Integer, T> places; 
