@@ -24,4 +24,8 @@ public class Diamond extends Adamant {
 			g.drawLine(srartRosX + 13, srartRosY - 30, srartRosX, srartRosY);
 		}
 	}
+
+	public void setDopColor(Color color) {
+		dopColor = color;
+	}
 }
