@@ -27,4 +27,8 @@ public abstract class Jewelry implements Stone {
 		srartRosX = x;
 		srartRosY = y;
 	}
+
+	public void setMainColor(Color color) {
+		ColorStone = color;
+	}
 }

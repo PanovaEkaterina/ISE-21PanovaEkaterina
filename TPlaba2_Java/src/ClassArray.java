@@ -4,7 +4,7 @@ import java.util.Hashtable;
 public class ClassArray<T extends Stone> {
 	private T defaultValue;
 	private int maxCount;
-	private Dictionary<Integer, T> places;
+	private Dictionary<Integer, T> places; 
 
 	public ClassArray(int sizes, T defVal) {
 		defaultValue = defVal;

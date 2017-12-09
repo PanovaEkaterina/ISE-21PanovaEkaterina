@@ -4,8 +4,8 @@ import java.awt.List;
 import java.util.ArrayList;
 
 public class Parking {
-	ArrayList<ClassArray<Stone>> parkingStages;
-	int countPlaces = 20;
+	ArrayList<ClassArray<Stone>> parkingStages; 
+	int countPlaces = 5;
 	int placeSizeWidth = 210;
 	int placeSizeHeight = 80;
 
