@@ -13,6 +13,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -31,6 +34,8 @@ public class SelectStone extends JDialog {
 	JPanel panel;
 	boolean r;
 
+	private Logger log;
+
 	public SelectStone(JFrame parent) {
 		super(parent, true);
 		main();
@@ -42,6 +47,19 @@ public class SelectStone extends JDialog {
 	}
 
 	public void main() {
+		log = Logger.getLogger(Main.class.getName());
+		FileHandler fh = null;
+		try {
+			fh = new FileHandler("D://file.txt");
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		log.addHandler(fh);
+		
 		this.getContentPane().setBackground(SystemColor.controlHighlight);
 		this.setBounds(100, 100, 420, 300);
 		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -202,6 +220,7 @@ public class SelectStone extends JDialog {
 		JButton btnAdd = new JButton("\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				log.log(Level.INFO, "Добавили камень ");
 				r = true;
 				JOptionPane.showMessageDialog(panel, "Добавили камень");
 				dispose();

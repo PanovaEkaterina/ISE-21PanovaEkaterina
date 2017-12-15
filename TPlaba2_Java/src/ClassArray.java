@@ -14,9 +14,9 @@ public class ClassArray<T extends Stone> implements Serializable {
 
 	}
 
-	public static <T extends Stone> int plus(ClassArray<T> p, T stone) {
+	public static <T extends Stone> int plus(ClassArray<T> p, T stone) throws ParkingOverflowException{
 		if (p.places.size() == p.maxCount) {
-			return -1;
+			throw new ParkingOverflowException();
 		}
 		for (int i = 0; i < p.places.size(); i++) {
 			if (p.CheckFreePlace(i)) {
@@ -28,13 +28,13 @@ public class ClassArray<T extends Stone> implements Serializable {
 		return p.places.size() - 1;
 	}
 
-	public static <T extends Stone> T minus(ClassArray<T> p, int index) {
+	public static <T extends Stone> T minus(ClassArray<T> p, int index) throws ParkingIndexOutOfRangeException {
 		if (((Hashtable<Integer, T>) p.places).containsKey(index)) {
 			T stone = p.places.get(index);
 			p.places.remove(index);
 			return stone;
 		}
-		return p.defaultValue;
+		throw new ParkingIndexOutOfRangeException();
 	}
 
 	private boolean CheckFreePlace(int index) {

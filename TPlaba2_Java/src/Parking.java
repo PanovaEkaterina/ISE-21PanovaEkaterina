@@ -42,11 +42,11 @@ public class Parking implements Serializable {
 		}
 	}
 
-	public int PutStoneInShowcase(Stone stone) {
+	public int PutStoneInShowcase(Stone stone) throws ParkingOverflowException {
 		return parkingStages.get(currentLevel).plus(parkingStages.get(currentLevel), stone);
 	}
 
-	public Stone GetStoneInShowcase(int ticket) {
+	public Stone GetStoneInShowcase(int ticket) throws ParkingIndexOutOfRangeException {
 		return parkingStages.get(currentLevel).minus(parkingStages.get(currentLevel), ticket);
 	}
 
