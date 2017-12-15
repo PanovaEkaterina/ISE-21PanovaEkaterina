@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplicationLaba2
 {
-    class Adamant : Jewelry
+    public class Adamant : Jewelry, IComparable<Adamant>,IEquatable<Adamant>
     {
         public override double Weight
         {
@@ -103,6 +103,75 @@ namespace WindowsFormsApplicationLaba2
         public override string getInfo()
         {
            return Weight + ";" + Price + ";" + Hardness + ";" + ColorStone.Name;
+        }
+
+        public int CompareTo(Adamant other)
+        {
+            if (other == null) {
+                return 1;
+            }
+            if (Weight != other.Weight)
+            {
+                return Weight.CompareTo(other.Weight);
+            }
+            if (Price != other.Price)
+            {
+                return Price.CompareTo(other.Price);
+            }
+            if (Hardness != other.Hardness)
+            {
+                return Hardness.CompareTo(other.Hardness);
+            }
+            if (ColorStone != other.ColorStone)
+            {
+                return ColorStone.Name.CompareTo(other.ColorStone);
+            }
+            return 0;
+        }
+
+        public bool Equals(Adamant other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (Price != other.Price)
+            {
+                return false;
+            }
+            if (Hardness != other.Hardness)
+            {
+                return false;
+            }
+            if (ColorStone != other.ColorStone)
+            {
+                return false;
+            }
+            return true;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+
+            }
+            Adamant AdamantObj = obj as Adamant;
+            if (AdamantObj == null)
+            {
+                return false;
+            }
+            else {
+                return Equals(AdamantObj);
+            }       
+        }
+        public override int GetHashCode()
+        {
+            return Price.GetHashCode();
         }
     }
 }

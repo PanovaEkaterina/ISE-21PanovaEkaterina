@@ -69,7 +69,11 @@ namespace WindowsFormsApplicationLaba2
                 {
                     MessageBox.Show(ex.Message,"Ошибка переполнения",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
-                catch(Exception ex)
+                catch (ParkingAlreadyHaveException ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка совпадения", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Общая ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -206,6 +210,13 @@ namespace WindowsFormsApplicationLaba2
                 }
                 Draw();
             }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            parking.Sort();
+            Draw();
+            log.Info("Сортировка уровня " + parking.getCurrentLevel);
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplicationLaba2
 {
-    class Diamond : Adamant
+    class Diamond : Adamant, IComparable<Diamond>, IEquatable<Diamond>
     {
         private bool facet; 
         private Color dopColor;
@@ -60,5 +60,61 @@ namespace WindowsFormsApplicationLaba2
             return Weight + ";" + Price + ";" + Hardness + ";" + ColorStone.Name + ";" + facet + ";" + dopColor.Name;
         }
 
+        public int CompareTo(Diamond other)
+        {
+            var res = (this is Adamant).CompareTo(other is Adamant);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (facet != other.facet)
+            {
+                return facet.CompareTo(other.facet);
+            }
+            if (dopColor != other.dopColor)
+            {
+                return dopColor.Name.CompareTo(other.facet);
+            }
+            return 0;
+        }
+
+        public bool Equals(Diamond other)
+        {
+            var res = (this is Adamant).Equals(other is Adamant);
+            if (!res)
+            {
+                return res;
+            }
+            if (facet != other.facet)
+            {
+                return false;
+            }
+            if (dopColor != other.dopColor)
+            {
+                return false;
+            }
+            return true;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+
+            }
+            Diamond DiamondObj = obj as Diamond;
+            if (DiamondObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(DiamondObj);
+            }
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
