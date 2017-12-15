@@ -58,18 +58,20 @@ namespace WindowsFormsApplicationLaba2
         public void Draw(Graphics g)
         {
             DrawMarking(g);
-            for (int i = 0; i < countPlaces; i++)
+            int i = 0;
+            foreach (var stone in parkingStages[currentLevel])
             {
-                var stone = parkingStages[currentLevel][i];
-                if (stone != null)
-                {
-                    stone.setPosition(5 + i / 5 * placeSizeWidth + 40, i % 5 * placeSizeHeight + 50);
-                    stone.drawStone(g);
-                }
+                stone.setPosition(5 + i / 5 * placeSizeWidth + 40, i % 5 * placeSizeHeight + 50);
+                stone.drawStone(g);
+                i++;
             }
         }
+        public void Sort()
+        {
+            parkingStages.Sort();
+        }
 
-        public void DrawMarking(Graphics g)
+    public void DrawMarking(Graphics g)
         {
             Pen pen = new Pen(Color.Black, 3);
             g.DrawString("L" + (currentLevel + 1), new Font("Arial", 30), new SolidBrush(Color.Blue), (countPlaces / 5) * placeSizeWidth - 70, 420);

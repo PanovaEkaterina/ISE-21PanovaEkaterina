@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplicationLaba2
 {
-    class ParkingOverflowException: Exception
+    class ParkingAlreadyHaveException : Exception
     {
-        public ParkingOverflowException():
-            base("В магазине нет свободных мест") { }
+        public ParkingAlreadyHaveException():
+            base("В магазине уже есть такой камень") { }
     }
 }
