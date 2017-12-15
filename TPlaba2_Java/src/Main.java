@@ -12,6 +12,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JMenu;
@@ -30,6 +33,8 @@ public class Main {
 
 	SelectStone select;
 
+	private static Logger log;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,6 +50,19 @@ public class Main {
 
 	public Main() {
 		parking = new Parking(5);
+
+		log = Logger.getLogger(Main.class.getName());
+		FileHandler fh = null;
+		try {
+			fh = new FileHandler("D://file.txt");
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		log.addHandler(fh);
 		initialize();
 
 		for (int i = 0; i < 5; i++) {
@@ -54,11 +72,26 @@ public class Main {
 		listlevel.setSelectedIndex(parking.getCurrentLevel());
 	}
 
+	/**
+	 * @throws ParkingOverflowException
+	 */
+
 	public void getStone() {
 		select = new SelectStone(frame);
 		if (select.res()) {
-			Stone plane = select.getStone();
-			int place = parking.PutStoneInShowcase(plane);
+			Stone stone = select.getStone();
+
+			int place = 0;
+			try {
+				place = parking.PutStoneInShowcase(stone);
+				log.log(Level.INFO, "Положили камень на место " + place);
+			} catch (ParkingOverflowException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Ошибка переполнения");
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(null, "Общая ошибка");
+			}
 			panel.repaint();
 			JOptionPane.showMessageDialog(frame, "Ваше место:" + place);
 		}
@@ -94,7 +127,16 @@ public class Main {
 		btnGetStone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (checkPlace(textFieldTake.getText())) {
-					Stone stone = parking.GetStoneInShowcase(Integer.parseInt(textFieldTake.getText()));
+					Stone stone = null;
+					try {
+						stone = parking.GetStoneInShowcase(Integer.parseInt(textFieldTake.getText()));
+						log.log(Level.INFO, "Забрали камень с места " + textFieldTake.getText());
+					} catch (ParkingIndexOutOfRangeException e) {
+						// TODO Auto-generated catch block
+						JOptionPane.showMessageDialog(null, "Неверный номер");
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(null, "Общая ошибка");
+					}
 					Graphics gr = panelTake.getGraphics();
 					gr.clearRect(0, 0, panelTake.getWidth(), panelTake.getHeight());
 					stone.setPosition(100, 50);
@@ -114,6 +156,7 @@ public class Main {
 		btnDown.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				parking.LevelDown();
+				log.log(Level.INFO, "Переход на уровень ниже Текущий уровень:" + parking.getCurrentLevel());
 				listlevel.setSelectedIndex(parking.getCurrentLevel());
 				panel.repaint();
 			}
@@ -125,6 +168,7 @@ public class Main {
 		btnUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				parking.LevelUp();
+				log.log(Level.INFO, "Переход на уровень выше Текущий уровень:" + parking.getCurrentLevel());
 				listlevel.setSelectedIndex(parking.getCurrentLevel());
 				panel.repaint();
 			}
