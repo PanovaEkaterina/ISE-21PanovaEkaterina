@@ -70,6 +70,17 @@ public class Main {
 		}
 
 		listlevel.setSelectedIndex(parking.getCurrentLevel());
+
+		JButton btnSort = new JButton("\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C");
+		btnSort.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				parking.sort();
+				panel.repaint();
+				log.info("Сортировка уровня " + parking.getCurrentLevel());
+			}
+		});
+		btnSort.setBounds(257, 261, 167, 23);
+		frame.getContentPane().add(btnSort);
 	}
 
 	/**
@@ -93,25 +104,25 @@ public class Main {
 				JOptionPane.showMessageDialog(null, "Общая ошибка");
 			}
 			panel.repaint();
-			JOptionPane.showMessageDialog(frame, "Ваше место:" + place);
+			JOptionPane.showMessageDialog(null, "Ваше место:" + place);
 		}
 	}
 
 	private void initialize() {
 
 		frame = new JFrame();
-		frame.setBounds(100, 100, 473, 562);
+		frame.setBounds(100, 100, 473, 476);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		panel = new Panel_parking(parking);
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel.setBounds(10, 11, 213, 501);
+		panel.setBounds(10, 11, 213, 409);
 		frame.getContentPane().add(panel);
 
 		JPanel panelTake = new JPanel();
 		panelTake.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panelTake.setBounds(257, 284, 167, 126);
+		panelTake.setBounds(257, 296, 167, 114);
 		frame.getContentPane().add(panelTake);
 
 		textFieldTake = new JTextField();
@@ -133,7 +144,7 @@ public class Main {
 						log.log(Level.INFO, "Забрали камень с места " + textFieldTake.getText());
 					} catch (ParkingIndexOutOfRangeException e) {
 						// TODO Auto-generated catch block
-						JOptionPane.showMessageDialog(null, "Неверный номер");
+						JOptionPane.showMessageDialog(null, "В магазине нет камня по такому индексу");
 					} catch (Exception ex) {
 						JOptionPane.showMessageDialog(null, "Общая ошибка");
 					}
@@ -145,7 +156,7 @@ public class Main {
 				}
 			}
 		});
-		btnGetStone.setBounds(306, 227, 89, 23);
+		btnGetStone.setBounds(257, 227, 167, 23);
 		frame.getContentPane().add(btnGetStone);
 
 		listlevel = new JList(elements);

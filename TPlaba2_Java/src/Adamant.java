@@ -5,7 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-public class Adamant extends Jewelry implements Serializable {
+public class Adamant extends Jewelry implements Serializable, Comparable<Adamant> {
 	public Adamant(int weight, int price, int hardness, Color color) {
 		this.Weight = weight;
 		this.Price = price;
@@ -61,25 +61,69 @@ public class Adamant extends Jewelry implements Serializable {
 		g.drawLine(srartRosX + 30, srartRosY - 30, srartRosX + 25, srartRosY - 35);
 		g.drawLine(srartRosX - 25, srartRosY - 35, srartRosX + 25, srartRosY - 35);
 	}
-	
+
 	public String getInfo() {
 		// TODO Auto-generated method stub
 		return Weight + ";" + Price + ";" + Hardness + ";" + ColorStone;
 
 	}
-	
-	private void writeObject(ObjectOutputStream s) throws IOException {
-        s.defaultWriteObject();
-        s.writeInt(ColorStone.getRed());
-        s.writeInt(ColorStone.getGreen());
-        s.writeInt(ColorStone.getBlue());
-    }
 
-    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        s.defaultReadObject();
-        int red = s.readInt();
-        int green = s.readInt();
-        int blue = s.readInt();
-        ColorStone = new Color(red, green, blue);
-    }
+	private void writeObject(ObjectOutputStream s) throws IOException {
+		s.defaultWriteObject();
+		s.writeInt(ColorStone.getRed());
+		s.writeInt(ColorStone.getGreen());
+		s.writeInt(ColorStone.getBlue());
+	}
+
+	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+		s.defaultReadObject();
+		int red = s.readInt();
+		int green = s.readInt();
+		int blue = s.readInt();
+		ColorStone = new Color(red, green, blue);
+	}
+
+	public int compareTo(Adamant other) {
+		// TODO Auto-generated method stub
+		if (other == null)
+			return 1;
+		if (Weight != other.Weight)
+			return Weight + "".compareTo(other.Weight + "");
+		if (Price != other.Price)
+			return Price + "".compareTo(other.Price + "");
+		if (Hardness != other.Hardness)
+			return Hardness + "".compareTo(other.Hardness + "");
+		if (ColorStone != other.ColorStone)
+			return ColorStone.toString().compareTo(other.ColorStone.toString());
+		return 0;
+	}
+
+	public boolean equals(Adamant other) {
+		if (other == null)
+			return false;
+		if (Weight != other.Weight) {
+			return false;
+		}
+		if (Price != other.Price) {
+			return false;
+		}
+		if (Hardness != other.Hardness) {
+			return false;
+		}
+		if (ColorStone != other.ColorStone) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		Adamant AdamantObj = (Adamant) obj;
+		if (AdamantObj == null)
+			return false;
+		else
+			return equals(AdamantObj);
+	}
 }

@@ -10,9 +10,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Parking implements Serializable {
-	ArrayList<ClassArray<Stone>> parkingStages; 
+	ArrayList<ClassArray<Stone>> parkingStages;
 	int countPlaces = 5;
 	int placeSizeWidth = 210;
 	int placeSizeHeight = 80;
@@ -42,7 +44,7 @@ public class Parking implements Serializable {
 		}
 	}
 
-	public int PutStoneInShowcase(Stone stone) throws ParkingOverflowException {
+	public int PutStoneInShowcase(Stone stone) throws ParkingOverflowException, ParkingAlreadyHaveException {
 		return parkingStages.get(currentLevel).plus(parkingStages.get(currentLevel), stone);
 	}
 
@@ -52,11 +54,13 @@ public class Parking implements Serializable {
 
 	public void Draw(Graphics g, int wight, int height) {
 		DrawMarking(g);
-		for (int i = 0; i < countPlaces; i++) {
-			Stone stone = parkingStages.get(currentLevel).getStone(i);
+		int i = 0;
+		while (parkingStages.get(currentLevel).hasNext()) {
+			Stone stone = parkingStages.get(currentLevel).next();
 			if (stone != null) {
 				stone.setPosition(5 + i / 5 * placeSizeWidth + 40, i % 5 * placeSizeHeight + 50);
 				stone.drawStone(g);
+				i++;
 			}
 		}
 	}
@@ -71,7 +75,7 @@ public class Parking implements Serializable {
 			g.drawLine(i * placeSizeWidth, 0, i * placeSizeWidth, 400);
 		}
 	}
-	
+
 	public boolean save(String fileName) throws IOException {
 
 		FileOutputStream save = null;
@@ -92,7 +96,7 @@ public class Parking implements Serializable {
 		try {
 			ObjectInputStream obLoad = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filename)));
 			try {
-				parkingStages = (ArrayList<ClassArray<Stone>>)obLoad.readObject();
+				parkingStages = (ArrayList<ClassArray<Stone>>) obLoad.readObject();
 				System.out.println(parkingStages.get(0).getStone(0).getInfo());
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -102,7 +106,18 @@ public class Parking implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return true;
+	}
+
+	public void sort() {
+		Collections.sort(parkingStages, new Comparator<ClassArray<Stone>>() {
+
+			@Override
+			public int compare(ClassArray<Stone> o1, ClassArray<Stone> o2) {
+				// TODO Auto-generated method stub
+				return o1.compareTo(o2);
+			}
+		});
 	}
 }
