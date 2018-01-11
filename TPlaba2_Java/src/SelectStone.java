@@ -222,7 +222,6 @@ public class SelectStone extends JDialog {
 			public void actionPerformed(ActionEvent arg0) {
 				log.log(Level.INFO, "Добавили камень ");
 				r = true;
-				JOptionPane.showMessageDialog(panel, "Добавили камень");
 				dispose();
 			}
 		});

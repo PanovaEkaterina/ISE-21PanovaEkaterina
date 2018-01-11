@@ -59,6 +59,38 @@ public class Diamond extends Adamant implements Serializable {
 	public String getInfo() {
 		// TODO Auto-generated method stub
 		return Weight + ";" + Price + ";" + Hardness + ";" + ColorStone + ";" + true + ";" + dopColor;
+	}
 
+	public int compareTo(Diamond other) {
+		int res = ((Adamant) this).compareTo((Adamant) other);
+		if (res != 0)
+			return res;
+		if (facet != other.facet)
+			return (facet + "").compareTo(other.facet + "");
+		if (dopColor != other.dopColor)
+			return dopColor.toString().compareTo(other.dopColor.toString());
+		return 0;
+	}
+
+	public boolean equals(Diamond other) {
+		boolean res = ((Adamant) this).equals((Adamant) other);
+		if (!res)
+			return res;
+		if (facet != other.facet)
+			return false;
+		if (dopColor != other.dopColor)
+			return false;
+		return true;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		Diamond DiamondObj = (Diamond) obj;
+		if (DiamondObj == null)
+			return false;
+		else
+			return equals(DiamondObj);
 	}
 }
